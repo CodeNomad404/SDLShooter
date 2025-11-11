@@ -2,13 +2,13 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\SDLShooter\build\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>D:\MyPracticeGame\SDLShooter\build\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\SDLShooter\SDLShooter-Windows.exe</FullPath>
+      <FullPath>D:\MyPracticeGame\SDLShooter\SDLShooter-Windows.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\SDLShooter\build\x64\Debug\ALL_BUILD</FullPath>
+      <FullPath>D:\MyPracticeGame\SDLShooter\build\x64\Debug\ALL_BUILD</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

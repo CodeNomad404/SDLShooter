@@ -17,6 +17,8 @@ set(TARGET ${PROJECT_NAME}-${CMAKE_SYSTEM_NAME})
 #查找SDL2库
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)
+find_package(SDL2_ttf REQUIRED)
+find_package(SDL2_mixer REQUIRED)
 
 #设置可执行文件
 add_executable(${TARGET} main.cpp)
@@ -25,4 +27,6 @@ add_executable(${TARGET} main.cpp)
 target_link_libraries(${TARGET} 
                         ${SDL2_LIBRARIES}
                         SDL2_image::SDL2_image
+                        SDL2_ttf::SDL2_ttf
+                        SDL2_mixer::SDL2_mixer
                         )

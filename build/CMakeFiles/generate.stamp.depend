@@ -23,8 +23,12 @@ D:/MyGameLibrary/SDL2/cmake/sdl2-config-version.cmake
 D:/MyGameLibrary/SDL2/cmake/sdl2-config.cmake
 D:/MyGameLibrary/SDL2/cmake/sdl2_image-config-version.cmake
 D:/MyGameLibrary/SDL2/cmake/sdl2_image-config.cmake
-D:/SDLShooter/CMakeLists.txt
-D:/SDLShooter/build/CMakeFiles/3.29.5-msvc4/CMakeCCompiler.cmake
-D:/SDLShooter/build/CMakeFiles/3.29.5-msvc4/CMakeCXXCompiler.cmake
-D:/SDLShooter/build/CMakeFiles/3.29.5-msvc4/CMakeRCCompiler.cmake
-D:/SDLShooter/build/CMakeFiles/3.29.5-msvc4/CMakeSystem.cmake
+D:/MyGameLibrary/SDL2/cmake/sdl2_mixer-config-version.cmake
+D:/MyGameLibrary/SDL2/cmake/sdl2_mixer-config.cmake
+D:/MyGameLibrary/SDL2/cmake/sdl2_ttf-config-version.cmake
+D:/MyGameLibrary/SDL2/cmake/sdl2_ttf-config.cmake
+D:/MyPracticeGame/SDLShooter/CMakeLists.txt
+D:/MyPracticeGame/SDLShooter/build/CMakeFiles/3.29.5-msvc4/CMakeCCompiler.cmake
+D:/MyPracticeGame/SDLShooter/build/CMakeFiles/3.29.5-msvc4/CMakeCXXCompiler.cmake
+D:/MyPracticeGame/SDLShooter/build/CMakeFiles/3.29.5-msvc4/CMakeRCCompiler.cmake
+D:/MyPracticeGame/SDLShooter/build/CMakeFiles/3.29.5-msvc4/CMakeSystem.cmake

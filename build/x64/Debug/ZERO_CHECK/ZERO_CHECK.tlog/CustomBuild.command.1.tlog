@@ -1,6 +1,6 @@
-^D:\SDLSHOOTER\BUILD\CMAKEFILES\0BFE856F6D1F4DF8F37FBEBB553704EF\GENERATE.STAMP.RULE
+^D:\MYPRACTICEGAME\SDLSHOOTER\BUILD\CMAKEFILES\D8F9EE313707BB6164312063BD1412F4\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/SDLShooter -BD:/SDLShooter/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/SDLShooter/build/SDLShooter.sln
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/MyPracticeGame/SDLShooter -BD:/MyPracticeGame/SDLShooter/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/MyPracticeGame/SDLShooter/build/SDLShooter.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

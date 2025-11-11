@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="D:\SDLShooter\main.cpp">
+    <ClCompile Include="D:\MyPracticeGame\SDLShooter\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\SDLShooter\CMakeLists.txt" />
+    <CustomBuild Include="D:\MyPracticeGame\SDLShooter\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{5F6094EC-6473-3ABF-A19D-A7793C96B854}</UniqueIdentifier>
+      <UniqueIdentifier>{CE15F017-CB91-3422-BF73-289EC86A1079}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

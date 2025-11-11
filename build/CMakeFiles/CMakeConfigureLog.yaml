@@ -24,9 +24,9 @@ events:
       The output was:
       0
       閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.11.2+c078802d4
-      鐢熸垚鍚姩鏃堕棿涓?2025/11/8 13:49:09銆?
+      鐢熸垚鍚姩鏃堕棿涓?2025/11/10 13:26:10銆?
       
-      鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\SDLShooter\\build\\CMakeFiles\\3.29.5-msvc4\\CompilerIdC\\CompilerIdC.vcxproj鈥?榛樿鐩爣)銆?
+      鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\3.29.5-msvc4\\CompilerIdC\\CompilerIdC.vcxproj鈥?榛樿鐩爣)銆?
       PrepareForBuild:
         姝ｅ湪鍒涘缓鐩綍鈥淒ebug\\鈥濄€?
         宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
@@ -39,7 +39,7 @@ events:
         CMakeCCompilerId.c
       Link:
         C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
-        CompilerIdC.vcxproj -> D:\\SDLShooter\\build\\CMakeFiles\\3.29.5-msvc4\\CompilerIdC\\CompilerIdC.exe
+        CompilerIdC.vcxproj -> D:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\3.29.5-msvc4\\CompilerIdC\\CompilerIdC.exe
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
         :VCEnd
@@ -47,13 +47,13 @@ events:
       FinalizeBuildStatus:
         姝ｅ湪鍒犻櫎鏂囦欢鈥淒ebug\\CompilerIdC.tlog\\unsuccessfulbuild鈥濄€?
         姝ｅ湪瀵光€淒ebug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
-      宸插畬鎴愮敓鎴愰」鐩€淒:\\SDLShooter\\build\\CMakeFiles\\3.29.5-msvc4\\CompilerIdC\\CompilerIdC.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+      宸插畬鎴愮敓鎴愰」鐩€淒:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\3.29.5-msvc4\\CompilerIdC\\CompilerIdC.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
       
       宸叉垚鍔熺敓鎴愩€?
           0 涓鍛?
           0 涓敊璇?
       
-      宸茬敤鏃堕棿 00:00:01.11
+      宸茬敤鏃堕棿 00:00:01.70
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -61,7 +61,7 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
       
       The C compiler identification is MSVC, found in:
-        D:/SDLShooter/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/CompilerIdC.exe
+        D:/MyPracticeGame/SDLShooter/build/CMakeFiles/3.29.5-msvc4/CompilerIdC/CompilerIdC.exe
       
   -
     kind: "message-v1"
@@ -79,9 +79,9 @@ events:
       The output was:
       0
       閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.11.2+c078802d4
-      鐢熸垚鍚姩鏃堕棿涓?2025/11/8 13:49:11銆?
+      鐢熸垚鍚姩鏃堕棿涓?2025/11/10 13:26:12銆?
       
-      鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\SDLShooter\\build\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj鈥?榛樿鐩爣)銆?
+      鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj鈥?榛樿鐩爣)銆?
       PrepareForBuild:
         姝ｅ湪鍒涘缓鐩綍鈥淒ebug\\鈥濄€?
         宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
@@ -94,7 +94,7 @@ events:
         CMakeCXXCompilerId.cpp
       Link:
         C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
-        CompilerIdCXX.vcxproj -> D:\\SDLShooter\\build\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.exe
+        CompilerIdCXX.vcxproj -> D:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.exe
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
         :VCEnd
@@ -102,13 +102,13 @@ events:
       FinalizeBuildStatus:
         姝ｅ湪鍒犻櫎鏂囦欢鈥淒ebug\\CompilerIdCXX.tlog\\unsuccessfulbuild鈥濄€?
         姝ｅ湪瀵光€淒ebug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
-      宸插畬鎴愮敓鎴愰」鐩€淒:\\SDLShooter\\build\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+      宸插畬鎴愮敓鎴愰」鐩€淒:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\3.29.5-msvc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
       
       宸叉垚鍔熺敓鎴愩€?
           0 涓鍛?
           0 涓敊璇?
       
-      宸茬敤鏃堕棿 00:00:01.19
+      宸茬敤鏃堕棿 00:00:00.52
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -116,7 +116,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
       
       The CXX compiler identification is MSVC, found in:
-        D:/SDLShooter/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/CompilerIdCXX.exe
+        D:/MyPracticeGame/SDLShooter/build/CMakeFiles/3.29.5-msvc4/CompilerIdCXX/CompilerIdCXX.exe
       
   -
     kind: "try_compile-v1"
@@ -127,8 +127,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "D:/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-suhte5"
-      binary: "D:/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-suhte5"
+      source: "D:/MyPracticeGame/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-bkfcei"
+      binary: "D:/MyPracticeGame/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-bkfcei"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
       CMAKE_C_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -137,40 +137,40 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-suhte5'
+        Change Dir: 'D:/MyPracticeGame/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-bkfcei'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_87a00.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_be205.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.11.2+c078802d4
-        鐢熸垚鍚姩鏃堕棿涓?2025/11/8 13:49:12銆?
+        鐢熸垚鍚姩鏃堕棿涓?2025/11/10 13:26:12銆?
         
-        鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-suhte5\\cmTC_87a00.vcxproj鈥?榛樿鐩爣)銆?
+        鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bkfcei\\cmTC_be205.vcxproj鈥?榛樿鐩爣)銆?
         PrepareForBuild:
-          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_87a00.dir\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_be205.dir\\Debug\\鈥濄€?
           宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
-          姝ｅ湪鍒涘缓鐩綍鈥淒:\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-suhte5\\Debug\\鈥濄€?
-          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_87a00.dir\\Debug\\cmTC_87a00.tlog\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥淒:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bkfcei\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_be205.dir\\Debug\\cmTC_be205.tlog\\鈥濄€?
         InitializeBuildStatus:
-          姝ｅ湪鍒涘缓鈥渃mTC_87a00.dir\\Debug\\cmTC_87a00.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
-          姝ｅ湪瀵光€渃mTC_87a00.dir\\Debug\\cmTC_87a00.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+          姝ｅ湪鍒涘缓鈥渃mTC_be205.dir\\Debug\\cmTC_be205.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_be205.dir\\Debug\\cmTC_be205.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_87a00.dir\\Debug\\\\" /Fd"cmTC_87a00.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_be205.dir\\Debug\\\\" /Fd"cmTC_be205.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
           鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.41.34120 鐗?
           鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_87a00.dir\\Debug\\\\" /Fd"cmTC_87a00.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_be205.dir\\Debug\\\\" /Fd"cmTC_be205.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-suhte5\\Debug\\cmTC_87a00.exe" /INCREMENTAL /ILK:"cmTC_87a00.dir\\Debug\\cmTC_87a00.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-suhte5/Debug/cmTC_87a00.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-suhte5/Debug/cmTC_87a00.lib" /MACHINE:X64  /machine:x64 cmTC_87a00.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_87a00.vcxproj -> D:\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-suhte5\\Debug\\cmTC_87a00.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bkfcei\\Debug\\cmTC_be205.exe" /INCREMENTAL /ILK:"cmTC_be205.dir\\Debug\\cmTC_be205.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/MyPracticeGame/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-bkfcei/Debug/cmTC_be205.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/MyPracticeGame/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-bkfcei/Debug/cmTC_be205.lib" /MACHINE:X64  /machine:x64 cmTC_be205.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_be205.vcxproj -> D:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bkfcei\\Debug\\cmTC_be205.exe
         FinalizeBuildStatus:
-          姝ｅ湪鍒犻櫎鏂囦欢鈥渃mTC_87a00.dir\\Debug\\cmTC_87a00.tlog\\unsuccessfulbuild鈥濄€?
-          姝ｅ湪瀵光€渃mTC_87a00.dir\\Debug\\cmTC_87a00.tlog\\cmTC_87a00.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
-        宸插畬鎴愮敓鎴愰」鐩€淒:\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-suhte5\\cmTC_87a00.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+          姝ｅ湪鍒犻櫎鏂囦欢鈥渃mTC_be205.dir\\Debug\\cmTC_be205.tlog\\unsuccessfulbuild鈥濄€?
+          姝ｅ湪瀵光€渃mTC_be205.dir\\Debug\\cmTC_be205.tlog\\cmTC_be205.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+        宸插畬鎴愮敓鎴愰」鐩€淒:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bkfcei\\cmTC_be205.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
         
         宸叉垚鍔熺敓鎴愩€?
             0 涓鍛?
             0 涓敊璇?
         
-        宸茬敤鏃堕棿 00:00:00.59
+        宸茬敤鏃堕棿 00:00:00.52
         
       exitCode: 0
   -
@@ -210,8 +210,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "D:/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-9w5rsf"
-      binary: "D:/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-9w5rsf"
+      source: "D:/MyPracticeGame/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-ea0orv"
+      binary: "D:/MyPracticeGame/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-ea0orv"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -221,40 +221,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-9w5rsf'
+        Change Dir: 'D:/MyPracticeGame/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-ea0orv'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_15465.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_15db1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.11.2+c078802d4
-        鐢熸垚鍚姩鏃堕棿涓?2025/11/8 13:49:13銆?
+        鐢熸垚鍚姩鏃堕棿涓?2025/11/10 13:26:13銆?
         
-        鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9w5rsf\\cmTC_15465.vcxproj鈥?榛樿鐩爣)銆?
+        鑺傜偣 1 涓婄殑椤圭洰鈥淒:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ea0orv\\cmTC_15db1.vcxproj鈥?榛樿鐩爣)銆?
         PrepareForBuild:
-          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_15465.dir\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_15db1.dir\\Debug\\鈥濄€?
           宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
-          姝ｅ湪鍒涘缓鐩綍鈥淒:\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9w5rsf\\Debug\\鈥濄€?
-          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_15465.dir\\Debug\\cmTC_15465.tlog\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥淒:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ea0orv\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_15db1.dir\\Debug\\cmTC_15db1.tlog\\鈥濄€?
         InitializeBuildStatus:
-          姝ｅ湪鍒涘缓鈥渃mTC_15465.dir\\Debug\\cmTC_15465.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
-          姝ｅ湪瀵光€渃mTC_15465.dir\\Debug\\cmTC_15465.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+          姝ｅ湪鍒涘缓鈥渃mTC_15db1.dir\\Debug\\cmTC_15db1.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_15db1.dir\\Debug\\cmTC_15db1.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_15465.dir\\Debug\\\\" /Fd"cmTC_15465.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_15db1.dir\\Debug\\\\" /Fd"cmTC_15db1.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
           鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.41.34120 鐗?
           鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_15465.dir\\Debug\\\\" /Fd"cmTC_15465.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_15db1.dir\\Debug\\\\" /Fd"cmTC_15db1.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9w5rsf\\Debug\\cmTC_15465.exe" /INCREMENTAL /ILK:"cmTC_15465.dir\\Debug\\cmTC_15465.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-9w5rsf/Debug/cmTC_15465.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-9w5rsf/Debug/cmTC_15465.lib" /MACHINE:X64  /machine:x64 cmTC_15465.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_15465.vcxproj -> D:\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9w5rsf\\Debug\\cmTC_15465.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ea0orv\\Debug\\cmTC_15db1.exe" /INCREMENTAL /ILK:"cmTC_15db1.dir\\Debug\\cmTC_15db1.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/MyPracticeGame/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-ea0orv/Debug/cmTC_15db1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/MyPracticeGame/SDLShooter/build/CMakeFiles/CMakeScratch/TryCompile-ea0orv/Debug/cmTC_15db1.lib" /MACHINE:X64  /machine:x64 cmTC_15db1.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_15db1.vcxproj -> D:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ea0orv\\Debug\\cmTC_15db1.exe
         FinalizeBuildStatus:
-          姝ｅ湪鍒犻櫎鏂囦欢鈥渃mTC_15465.dir\\Debug\\cmTC_15465.tlog\\unsuccessfulbuild鈥濄€?
-          姝ｅ湪瀵光€渃mTC_15465.dir\\Debug\\cmTC_15465.tlog\\cmTC_15465.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
-        宸插畬鎴愮敓鎴愰」鐩€淒:\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9w5rsf\\cmTC_15465.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+          姝ｅ湪鍒犻櫎鏂囦欢鈥渃mTC_15db1.dir\\Debug\\cmTC_15db1.tlog\\unsuccessfulbuild鈥濄€?
+          姝ｅ湪瀵光€渃mTC_15db1.dir\\Debug\\cmTC_15db1.tlog\\cmTC_15db1.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+        宸插畬鎴愮敓鎴愰」鐩€淒:\\MyPracticeGame\\SDLShooter\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ea0orv\\cmTC_15db1.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
         
         宸叉垚鍔熺敓鎴愩€?
             0 涓鍛?
             0 涓敊璇?
         
-        宸茬敤鏃堕棿 00:00:00.49
+        宸茬敤鏃堕棿 00:00:00.52
         
       exitCode: 0
   -
