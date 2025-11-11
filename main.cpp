@@ -40,7 +40,7 @@ int main(int, char**) {
     SDL_Surface *surface = TTF_RenderUTF8_Solid(font, "Hello SDL2!", color);
     SDL_Texture *text = SDL_CreateTextureFromSurface(ren, surface);
 
-    //初始化SDL_mixer音频
+    // 初始化SDL_mixer
     if(Mix_OpenAudio(44100,MIX_DEFAULT_FORMAT,2,2048) < 0)
     {
         cerr << "Mix_OpenAudio Error: " << Mix_GetError() << endl;
