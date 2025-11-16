@@ -321,7 +321,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="D:\MyPracticeGame\SDLShooter\main.cpp" />
+    <ClCompile Include="D:\MyPracticeGame\SDLShooter\src\main.cpp" />
+    <ClCompile Include="D:\MyPracticeGame\SDLShooter\src\Game.cpp" />
+    <ClCompile Include="D:\MyPracticeGame\SDLShooter\src\SceneMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\MyPracticeGame\SDLShooter\build\ZERO_CHECK.vcxproj">
