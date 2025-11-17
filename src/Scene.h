@@ -2,6 +2,9 @@
 #define SCENE_H
 
 #include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
+
 class Scene {
 public:
     Scene()=default;

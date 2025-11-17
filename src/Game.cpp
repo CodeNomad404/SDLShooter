@@ -2,6 +2,8 @@
 #include "Scene.h"
 #include "SceneMain.h"
 #include <SDL.h>
+#include <SDL_image.h>
+
 Game::Game()
 {
 }
@@ -51,9 +53,17 @@ void Game::init()
         isRunning = false;
         return;
     }
+    //初始化SDL_image
+    if(IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG)
+    {
+        SDL_LogError(SDL_LOG_CATEGORY_ERROR,"SDL_image could not be initialized: %s", SDL_GetError());
+        isRunning = false;
+        return;
+    }
 
     //创建场景
     currentScene = new SceneMain();
+    currentScene->init();
 }
 
 void Game::clean()
@@ -64,6 +74,8 @@ void Game::clean()
         delete currentScene;
         currentScene = nullptr;  // 设置为nullptr
     }
+    //退出SDL_image
+    IMG_Quit();
     if(renderer != nullptr)
     {
         SDL_DestroyRenderer(renderer);
@@ -74,6 +86,8 @@ void Game::clean()
         SDL_DestroyWindow(window);
         window = nullptr;
     }
+
+    //退出SDL
     SDL_Quit();
 }
 
