@@ -4,8 +4,9 @@ SceneMain::SceneMain():game(Game::getInstance())
 {
 }
 
-void SceneMain::update()
+void SceneMain::update(float deltaTime)
 {
+    keyboardControl(deltaTime);
 }
 
 void SceneMain::render()
@@ -41,4 +42,34 @@ void SceneMain::clean()
 
 void SceneMain::handleEvents(SDL_Event *event)
 {
+}
+
+void SceneMain::keyboardControl(float deltaTime)
+{
+    auto keyBoardStates=SDL_GetKeyboardState(NULL);
+    if(keyBoardStates[SDL_SCANCODE_W])
+    {
+        player.position.y-=deltaTime*player.speed;
+    }
+    if(keyBoardStates[SDL_SCANCODE_S])
+    {
+        player.position.y+=deltaTime*player.speed;
+    }
+    if(keyBoardStates[SDL_SCANCODE_A])
+    {
+        player.position.x-=deltaTime*player.speed;
+    }
+    if(keyBoardStates[SDL_SCANCODE_D])
+    {
+        player.position.x+=deltaTime*player.speed;
+    }
+
+    if(player.position.x<0)
+        player.position.x=0;
+    if(player.position.x>game.getWindowWidth()-player.width)
+        player.position.x=game.getWindowWidth()-player.width;
+    if(player.position.y<0)
+        player.position.y=0;
+    if(player.position.y>game.getWindowHeight()-player.height)
+        player.position.y=game.getWindowHeight()-player.height;
 }

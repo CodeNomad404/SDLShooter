@@ -11,11 +11,13 @@ public:
     SceneMain();
     ~SceneMain();
 
-    void update() override;
+    void update(float deltaTime) override;
     void render() override;
     void init() override;
     void clean() override;
     void handleEvents(SDL_Event* event) override;
+
+    void keyboardControl(float deltaTime);
 private:
     Game& game ;// = Game::getInstance();
     //不能在头文件中直接初始化单例对象，否则会导致循环依赖
