@@ -134,9 +134,10 @@ void Game::update(float deltaTime)
 void Game::render()
 {
     //清空屏幕
-       SDL_RenderClear(renderer);
+    SDL_RenderClear(renderer);
 
-       currentScene->render();
-       //更新屏幕
-       SDL_RenderPresent(renderer);
+    currentScene->render();
+    
+    //更新屏幕
+    SDL_RenderPresent(renderer);
 }
