@@ -13,6 +13,7 @@ void SceneMain::update(float deltaTime)
 {
     keyboardControl(deltaTime);
     updateProjectiles(deltaTime);
+    updateEnemyProjectiles(deltaTime);
     spawEnemy();
     updateEnemies(deltaTime);
 }
@@ -29,6 +30,7 @@ void SceneMain::render()
     };
     SDL_RenderCopy(game.getRenderer(),player.texture,NULL,&playerRect);
     //渲染敌机
+    renderEnemyProjectiles();
     renderEnemies();
 }
 
@@ -62,6 +64,13 @@ void SceneMain::init()
     //敌机缩小
     enemyTemplate.width/=4;
     enemyTemplate.height/=4;
+
+    //初始化敌机子弹模板
+    projectileEnemyTemplate.texture=IMG_LoadTexture(game.getRenderer(),"assets/image/bullet-1.png");
+    SDL_QueryTexture(projectileEnemyTemplate.texture, NULL, NULL, &projectileEnemyTemplate.width, &projectileEnemyTemplate.height);
+    //敌机子弹缩小
+    projectileEnemyTemplate.width/=4;
+    projectileEnemyTemplate.height/=4;
 }
 
 void SceneMain::clean()
@@ -85,18 +94,36 @@ void SceneMain::clean()
         }
     }
     enemies.clear();
+
+    //清理敌机子弹
+    for(auto& enemyProjectile : enemyProjectiles)
+    {
+        if(enemyProjectile!=nullptr)
+        {
+            delete enemyProjectile;
+        }
+    }
+    enemyProjectiles.clear();
+
     //清理texture
     if(player.texture!=NULL)
     {
         SDL_DestroyTexture(player.texture);
     }
+
     if(projectilePlayerTemplate.texture!=NULL)
     {
         SDL_DestroyTexture(projectilePlayerTemplate.texture);
     }
+
     if(enemyTemplate.texture!=NULL)
     {
         SDL_DestroyTexture(enemyTemplate.texture);
+    }
+
+    if(projectileEnemyTemplate.texture!=NULL)
+    {
+        SDL_DestroyTexture(projectileEnemyTemplate.texture);
     }
 }
 
@@ -215,6 +242,13 @@ void SceneMain::updateEnemies(float deltaTime)
         }
         else
         {
+            auto currentTime=SDL_GetTicks();
+            if(currentTime-enemy->lastShootTime>enemy->coolDown)
+            {
+                //敌机发射子弹
+                shootEnemy(enemy);
+                enemy->lastShootTime=currentTime;
+            }
             ++it;
         }
     }
@@ -232,5 +266,63 @@ void SceneMain::renderEnemies()
             enemy->height
         };
         SDL_RenderCopy(game.getRenderer(),enemy->texture,NULL,&enemyRect);
+    }
+}
+
+void SceneMain::shootEnemy(Enemy* enemy)
+{   
+    auto projectile=new projectileEnemy(projectileEnemyTemplate);
+    projectile->position.x=enemy->position.x+enemy->width/2-projectile->width/2;
+    projectile->position.y=enemy->position.y+enemy->height-projectile->height/2;
+    //计算方向向量，指向玩家位置
+    projectile->direction=getDirection(enemy);
+    enemyProjectiles.push_back(projectile);
+}
+
+SDL_FPoint SceneMain::getDirection(Enemy *enemy)
+{
+    auto x=player.position.x+player.width/2-enemy->position.x-enemy->width/2;
+    auto y=player.position.y+player.height/2-enemy->position.y-enemy->height/2;
+    auto length=std::sqrt(x*x+y*y);
+    x=x/length;
+    y=y/length;
+    return SDL_FPoint{x,y};
+}
+
+void SceneMain::updateEnemyProjectiles(float deltaTime)
+{
+    for(auto it=enemyProjectiles.begin();it!=enemyProjectiles.end();)
+    {
+        auto& projectile = *it;
+        projectile->position.x += projectile->direction.x * projectile->speed * deltaTime;
+        projectile->position.y += projectile->direction.y * projectile->speed * deltaTime;
+        //如果子弹飞出屏幕，则删除
+        if(projectile->position.y > game.getWindowHeight() ||
+           projectile->position.x < 0 ||
+           projectile->position.x > game.getWindowWidth()||
+           projectile->position.y < 0)
+        {
+            delete projectile;
+            it=enemyProjectiles.erase(it);
+        }
+        else
+        {
+            ++it;
+        }
+    }
+}
+
+void SceneMain::renderEnemyProjectiles()
+{
+    for(auto projectile : enemyProjectiles)
+    {
+        SDL_Rect projectileRect=
+        {
+            static_cast<int>(projectile->position.x),
+            static_cast<int>(projectile->position.y),
+            projectile->width,
+            projectile->height
+        };
+        SDL_RenderCopy(game.getRenderer(),projectile->texture,NULL,&projectileRect);
     }
 }
