@@ -15,28 +15,34 @@ public:
     ~SceneMain();
 
     void update(float deltaTime) override;
+    void updatePlayerProjectiles(float deltaTime);//更新玩家子弹
+    void updateEnemyProjectiles(float deltaTime);//更新敌人子弹
+    void updateEnemies(float deltaTime);//更新敌人
+    void updatePlayer(float deltaTime);//更新玩家
+
     void render() override;
+    void renderProjectiles();//渲染子弹
+    void renderEnemies();//渲染敌人
+    void renderEnemyProjectiles();//渲染敌人子弹
+
     void init() override;
     void clean() override;
     void handleEvents(SDL_Event* event) override;
 
     void keyboardControl(float deltaTime);
-    void shootPlayer();
 
-    void updateProjectiles(float deltaTime);
-    void renderProjectiles();
+    void shootPlayer();//玩家射击
 
     void spawEnemy(); //生成敌人
-    void updateEnemies(float deltaTime);
-    void renderEnemies();
     void shootEnemy(Enemy* enemy);
     SDL_FPoint getDirection(Enemy* enemy);//获取敌人朝向玩家的方向向量
-    void updateEnemyProjectiles(float deltaTime);
-    void renderEnemyProjectiles();
+    void enemyExplode(Enemy* enemy);//敌机爆炸
 private:
     Game& game ;// = Game::getInstance();
     //不能在头文件中直接初始化单例对象，否则会导致循环依赖
     Player player;
+    bool isDead= false;
+    
     mt19937 gen;//随机数生成器
     uniform_real_distribution<float> dis;//生成随机数
     

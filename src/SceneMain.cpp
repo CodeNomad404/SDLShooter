@@ -12,23 +12,27 @@ SceneMain::SceneMain():game(Game::getInstance())
 void SceneMain::update(float deltaTime)
 {
     keyboardControl(deltaTime);
-    updateProjectiles(deltaTime);
+    updatePlayerProjectiles(deltaTime);
     updateEnemyProjectiles(deltaTime);
     spawEnemy();
     updateEnemies(deltaTime);
+    updatePlayer(deltaTime);
 }
 
 void SceneMain::render()
 {
     renderProjectiles();//先渲染子弹，防止飞机被遮挡
-    SDL_Rect playerRect=
+    if(!isDead)
     {
-        static_cast<int>(player.position.x),
-        static_cast<int>(player.position.y),
-        player.width,
-        player.height
-    };
+        SDL_Rect playerRect=
+        {
+            static_cast<int>(player.position.x),
+            static_cast<int>(player.position.y),
+            player.width,
+            player.height
+        };
     SDL_RenderCopy(game.getRenderer(),player.texture,NULL,&playerRect);
+    }
     //渲染敌机
     renderEnemyProjectiles();
     renderEnemies();
@@ -133,6 +137,9 @@ void SceneMain::handleEvents(SDL_Event *event)
 
 void SceneMain::keyboardControl(float deltaTime)
 {
+    if(isDead){
+        return;
+    }
     auto keyBoardStates=SDL_GetKeyboardState(NULL);
     if(keyBoardStates[SDL_SCANCODE_W])
     {
@@ -181,7 +188,7 @@ void SceneMain::shootPlayer()
     playerProjectiles.push_back(projectile);
 }
 
-void SceneMain::updateProjectiles(float deltaTime)
+void SceneMain::updatePlayerProjectiles(float deltaTime)
 {
     for(auto it=playerProjectiles.begin();it!=playerProjectiles.end();)
     {
@@ -195,7 +202,34 @@ void SceneMain::updateProjectiles(float deltaTime)
         }
         else
         {
-            ++it;
+            bool hit=false;
+            for(auto enemy : enemies)
+            {
+                SDL_Rect enemyRect={
+                    static_cast<int>(enemy->position.x),
+                    static_cast<int>(enemy->position.y),
+                    enemy->width,
+                    enemy->height
+                };
+                SDL_Rect projectileRect={
+                    static_cast<int>(projectile->position.x),
+                    static_cast<int>(projectile->position.y),
+                    projectile->width,
+                    projectile->height
+                };
+                if(SDL_HasIntersection(&enemyRect,&projectileRect))
+                {
+                    enemy->currentHealth -= projectile->damage;
+                    delete projectile;
+                    it=playerProjectiles.erase(it);
+                    hit=true;
+                    break;
+                }
+            }
+            if(!hit)
+            {
+                ++it;
+            }
         }
     }
 }
@@ -243,13 +277,53 @@ void SceneMain::updateEnemies(float deltaTime)
         else
         {
             auto currentTime=SDL_GetTicks();
-            if(currentTime-enemy->lastShootTime>enemy->coolDown)
+            if(currentTime-enemy->lastShootTime>enemy->coolDown&&!isDead)
             {
                 //敌机发射子弹
                 shootEnemy(enemy);
                 enemy->lastShootTime=currentTime;
             }
-            ++it;
+
+            if(enemy->currentHealth<=0)
+            {
+                enemyExplode(enemy);
+                it=enemies.erase(it);
+            }
+            else
+            {
+                ++it;
+            }
+        }
+    }
+}
+
+void SceneMain::updatePlayer(float deltaTime)
+{
+    if(isDead){
+        return;
+    }
+    if(player.currentHealth<=0)
+    {
+        isDead=true;
+    }
+    for(auto& enemy:enemies)
+    {
+        SDL_Rect enemyRect={
+            static_cast<int>(enemy->position.x),
+            static_cast<int>(enemy->position.y),
+            enemy->width,
+            enemy->height
+        };
+        SDL_Rect playerRect={
+            static_cast<int>(player.position.x),
+            static_cast<int>(player.position.y),
+            player.width,
+            player.height
+        };
+        if(SDL_HasIntersection(&enemyRect,&playerRect)&&!isDead)//检测碰撞
+        {
+            player.currentHealth-=1;
+            enemy->currentHealth=0;
         }
     }
 }
@@ -307,7 +381,29 @@ void SceneMain::updateEnemyProjectiles(float deltaTime)
         }
         else
         {
-            ++it;
+            SDL_Rect playerRect={
+                static_cast<int>(player.position.x),
+                static_cast<int>(player.position.y),
+                player.width,
+                player.height
+            };
+            SDL_Rect projectileRect={
+                static_cast<int>(projectile->position.x),
+                static_cast<int>(projectile->position.y),
+                projectile->width,
+                projectile->height
+            };
+            if(SDL_HasIntersection(&playerRect,&projectileRect)&&!isDead)//检测碰撞
+            {
+                
+                player.currentHealth-=projectile->damage;
+                delete projectile;
+                it=enemyProjectiles.erase(it);//删除子弹
+            }
+            else
+            {
+                ++it;
+            }
         }
     }
 }
@@ -323,6 +419,13 @@ void SceneMain::renderEnemyProjectiles()
             projectile->width,
             projectile->height
         };
-        SDL_RenderCopy(game.getRenderer(),projectile->texture,NULL,&projectileRect);
+        //SDL_RenderCopy(game.getRenderer(),projectile->texture,NULL,&projectileRect);
+        float angle = atan2(projectile->direction.y,projectile->direction.x) * 180 / M_PI-90.0f;
+        SDL_RenderCopyEx(game.getRenderer(),projectile->texture,NULL,&projectileRect,angle,NULL,SDL_FLIP_NONE);
     }
+}
+
+void SceneMain::enemyExplode(Enemy *enemy)
+{
+    delete enemy;
 }
