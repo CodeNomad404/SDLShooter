@@ -3,7 +3,8 @@
 
 #include "Scene.h"
 #include "Object.h"
-#include<list>
+#include <list>
+#include <random>
 using namespace std;
 
 class Game;//不能包含Game.h，否则会循环依赖，在cpp文件中包含即可
@@ -24,11 +25,23 @@ public:
 
     void updateProjectiles(float deltaTime);
     void renderProjectiles();
+
+    void spawEnemy(); //生成敌人
+    void updateEnemies(float deltaTime);
+    void renderEnemies();
 private:
     Game& game ;// = Game::getInstance();
     //不能在头文件中直接初始化单例对象，否则会导致循环依赖
     Player player;
+    mt19937 gen;//随机数生成器
+    uniform_real_distribution<float> dis;//生成随机数
+    
+    //创建子弹模板
     projectilePlayer projectilePlayerTemplate;
     list<projectilePlayer*> playerProjectiles;
+
+    //创建敌人模板
+    Enemy enemyTemplate;
+    list<Enemy*> enemies;
 };
 #endif // SCENE_MAIN_H
