@@ -4,6 +4,7 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <random>
+#include <string>
 
 SceneMain::SceneMain():game(Game::getInstance())
 {
@@ -42,11 +43,36 @@ void SceneMain::render()
     //渲染道具
     renderItems();
 
-    renderExplosions();//最后渲染爆炸效果
+    renderExplosions(); //最后渲染爆炸效果
+
+    //渲染血条
+    renderUI();
 }
 
 void SceneMain::init()
 {
+    //读取并播放背景音乐
+    bgm=Mix_LoadMUS("assets/music/03_Racing_Through_Asteroids_Loop.ogg");
+    if(bgm==nullptr)
+    {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,"Mix_LoadMUS Error:%s",Mix_GetError());
+    }
+    Mix_PlayMusic(bgm,-1);
+
+    //uiHealth初始化
+    uiHealth=IMG_LoadTexture(game.getRenderer(),"assets/image/Health UI Black.png");
+
+    //载入字体
+    scoreFont= TTF_OpenFont("assets/font/VonwaonBitmap-12px.ttf", 24);
+
+    //读取音效资源
+    sounds["player_shoot"]=Mix_LoadWAV("assets/sound/laser_shoot4.wav");
+    sounds["enemy_shoot"]=Mix_LoadWAV("assets/sound/xs_laser.wav");
+    sounds["player_explosion"]=Mix_LoadWAV("assets/sound/explosion1.wav");
+    sounds["enemy_explosion"]=Mix_LoadWAV("assets/sound/explosion3.wav");
+    sounds["hit"]=Mix_LoadWAV("assets/sound/eff11.wav");
+    sounds["get_item"]=Mix_LoadWAV("assets/sound/eff5.wav");
+
     //获取敌机初始化位置
     std::random_device rd;
     gen=std::mt19937(rd());
@@ -98,6 +124,14 @@ void SceneMain::init()
 
 void SceneMain::clean()
 {
+
+    for(auto sound: sounds){
+        if(sound.second!=nullptr){
+            Mix_FreeChunk(sound.second);
+        }
+    }
+    sounds.clear();
+
     //清理玩家子弹
     for(auto& projectile : playerProjectiles)
     {
@@ -145,7 +179,19 @@ void SceneMain::clean()
         {
             delete item;
         }
-        
+    }
+    items.clear();
+
+    //清理UI
+    if(uiHealth!=nullptr)
+    {
+        SDL_DestroyTexture(uiHealth);
+    }
+
+    //清理字体
+    if(scoreFont!=nullptr)
+    {
+        TTF_CloseFont(scoreFont);
     }
 
     //清理texture
@@ -177,6 +223,13 @@ void SceneMain::clean()
     if(itemLifeTemplate.texture!=NULL)
     {
         SDL_DestroyTexture(itemLifeTemplate.texture);
+    }
+
+    //清理音乐资源
+    if(bgm!=nullptr)
+    {
+        Mix_HaltMusic();
+        Mix_FreeMusic(bgm);
     }
 }
 
@@ -235,6 +288,7 @@ void SceneMain::shootPlayer()
     projectile->position.x=player.position.x + player.width / 2 - projectile->width / 2;
     projectile->position.y=player.position.y ;
     playerProjectiles.push_back(projectile);
+    Mix_PlayChannel(0,sounds["player_shoot"],0);
 }
 
 void SceneMain::updatePlayerProjectiles(float deltaTime)
@@ -272,6 +326,7 @@ void SceneMain::updatePlayerProjectiles(float deltaTime)
                     delete projectile;
                     it=playerProjectiles.erase(it);
                     hit=true;
+                    Mix_PlayChannel(-1,sounds["hit"],0);
                     break;
                 }
             }
@@ -360,6 +415,8 @@ void SceneMain::updatePlayer(float deltaTime)
         explosion->position.y=player.position.y+player.height/2-explosion->height/2;
         explosion->startTime=currentTime;
         explosions.push_back(explosion);
+        Mix_PlayChannel(-1,sounds["player_explosion"],0);
+        return;
     }
     for(auto& enemy:enemies)
     {
@@ -462,7 +519,7 @@ void SceneMain::updateItems(float deltaTime)
                 player.height
             };
             //检测碰撞
-            if(SDL_HasIntersection(&itemRect,&playerRect))
+            if(SDL_HasIntersection(&itemRect,&playerRect)&&isDead==false)
             {
                 //玩家获得道具
                 playerGetItem(item);
@@ -500,6 +557,7 @@ void SceneMain::shootEnemy(Enemy* enemy)
     //计算方向向量，指向玩家位置
     projectile->direction=getDirection(enemy);
     enemyProjectiles.push_back(projectile);
+    Mix_PlayChannel(1,sounds["enemy_shoot"],0);
 }
 
 SDL_FPoint SceneMain::getDirection(Enemy *enemy)
@@ -544,10 +602,10 @@ void SceneMain::updateEnemyProjectiles(float deltaTime)
             };
             if(SDL_HasIntersection(&playerRect,&projectileRect)&&!isDead)//检测碰撞
             {
-                
                 player.currentHealth-=projectile->damage;
                 delete projectile;
                 it=enemyProjectiles.erase(it);//删除子弹
+                Mix_PlayChannel(-1,sounds["hit"],0);
             }
             else
             {
@@ -612,6 +670,36 @@ void SceneMain::renderItems()
     }
 }
 
+void SceneMain::renderUI()
+{
+    //渲染血条
+    int x=10;
+    int y=10;
+    int size=32;
+    int offset=40;
+    SDL_SetTextureColorMod(uiHealth,100,100,100);//颜色减淡
+    for(int i=0;i<player.maxHealth;i++)
+    {
+        SDL_Rect destRect={x+i*offset,y,size,size};
+        SDL_RenderCopy(game.getRenderer(),uiHealth,NULL,&destRect);
+    }
+    SDL_SetTextureColorMod(uiHealth,255,255,255);//恢复颜色
+    for(int i=0;i<player.currentHealth;i++)//绘制血条
+    {
+        SDL_Rect destRect={x+i*offset,y,size,size};
+        SDL_RenderCopy(game.getRenderer(),uiHealth,NULL,&destRect);
+    }
+    //渲染分数
+    auto text="Score:" + std::to_string(score);
+    SDL_Color color={255,255,255,255};
+    SDL_Surface* textSurface=TTF_RenderUTF8_Solid(scoreFont,text.c_str(),color);
+    SDL_Texture* textTexture=SDL_CreateTextureFromSurface(game.getRenderer(),textSurface);
+    SDL_Rect textRect={game.getWindowWidth()-180,10,textSurface->w,textSurface->h};
+    SDL_RenderCopy(game.getRenderer(),textTexture,NULL,&textRect);
+    SDL_FreeSurface(textSurface);
+    SDL_DestroyTexture(textTexture);
+}
+
 void SceneMain::enemyExplode(Enemy *enemy)
 {
     auto currentTime = SDL_GetTicks();
@@ -620,8 +708,12 @@ void SceneMain::enemyExplode(Enemy *enemy)
     explosion->position.y=enemy->position.y+enemy->height/2-explosion->height/2;
     explosion->startTime=currentTime;
     explosions.push_back(explosion);
+    Mix_PlayChannel(-1,sounds["enemy_explosion"],0);
     if(dis(gen)<0.5f) //50%概率掉落道具
-    dropItem(enemy);
+    {
+        dropItem(enemy);
+    }
+    score+=10;
     delete enemy;
 }
 
@@ -638,6 +730,7 @@ void SceneMain::dropItem(Enemy *enemy)
 
 void SceneMain::playerGetItem(Item* item)
 {
+    score+=5;
     if(item->type==ItemType::Life)
     {
         player.currentHealth++;
@@ -646,4 +739,5 @@ void SceneMain::playerGetItem(Item* item)
             player.currentHealth=player.maxHealth;
         }
     }
+    Mix_PlayChannel(-1,sounds["get_item"],0);
 }

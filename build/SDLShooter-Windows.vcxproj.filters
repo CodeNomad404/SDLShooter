@@ -7,6 +7,9 @@
     <ClCompile Include="D:\MyPracticeGame\SDLShooter\src\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\MyPracticeGame\SDLShooter\src\SceneTitle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="D:\MyPracticeGame\SDLShooter\src\SceneMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

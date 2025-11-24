@@ -4,7 +4,6 @@
 #include<SDL_ttf.h>
 #include<SDL_mixer.h>
 #include"Game.h"
-using namespace std;
 
 int main(int, char**) {
     Game& game=Game::getInstance();

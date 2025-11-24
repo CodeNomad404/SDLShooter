@@ -34,7 +34,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 31,
+				"line" : 32,
 				"parent" : 0
 			}
 		]
@@ -61,7 +61,8 @@
 			[
 				0,
 				1,
-				2
+				2,
+				3
 			]
 		}
 	],
@@ -131,7 +132,8 @@
 			[
 				0,
 				1,
-				2
+				2,
+				3
 			]
 		}
 	],
@@ -147,6 +149,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/Game.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/SceneTitle.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

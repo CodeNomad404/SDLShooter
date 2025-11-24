@@ -24,6 +24,7 @@ find_package(SDL2_mixer REQUIRED)
 add_executable(${TARGET} 
                 "src/main.cpp"
                 "src/Game.cpp"
+                "src/SceneTitle.cpp"
                 "src/SceneMain.cpp"
                 )
 

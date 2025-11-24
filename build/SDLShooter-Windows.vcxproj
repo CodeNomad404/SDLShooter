@@ -323,6 +323,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClCompile Include="D:\MyPracticeGame\SDLShooter\src\main.cpp" />
     <ClCompile Include="D:\MyPracticeGame\SDLShooter\src\Game.cpp" />
+    <ClCompile Include="D:\MyPracticeGame\SDLShooter\src\SceneTitle.cpp" />
     <ClCompile Include="D:\MyPracticeGame\SDLShooter\src\SceneMain.cpp" />
   </ItemGroup>
   <ItemGroup>

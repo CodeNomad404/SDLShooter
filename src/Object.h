@@ -78,4 +78,15 @@ struct Item//道具
     int bounceCount=3; //反弹次数
     ItemType type=ItemType::Life; //道具类型
 };
+
+struct Background
+{
+    SDL_Texture* texture=nullptr;
+    SDL_FPoint position1={0,0}; //第一张图位置
+    SDL_FPoint position2={0,-800}; //第二张图位置
+    float offset=0; //滚动偏移量
+    int width=0;
+    int height=0;
+    int speed=30; //滚动速度
+};
 #endif
