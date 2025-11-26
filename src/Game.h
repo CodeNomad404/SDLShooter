@@ -7,6 +7,7 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <SDL_mixer.h>
+#include <string>
 
 class Game {
 public:
@@ -24,6 +25,9 @@ public:
     void handeleEvent(SDL_Event* event);
     void update(float deltaTime);
     void render();
+
+    //渲染工具函数
+    void renderTextCentered(std::string text, float posY,bool isTitle);
     
     //getters
     SDL_Window* getWindow() {return window;}

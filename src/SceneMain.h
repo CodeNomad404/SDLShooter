@@ -23,7 +23,6 @@ public:
     void clean() override;
     void handleEvents(SDL_Event* event) override;
 private:
-    Game& game ;// = Game::getInstance();
     //不能在头文件中直接初始化单例对象，否则会导致循环依赖
     Player player;
     Mix_Music* bgm; //背景音乐

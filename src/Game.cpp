@@ -1,5 +1,4 @@
 #include "Game.h"
-#include "Scene.h"
 #include "SceneMain.h"
 #include "SceneTitle.h"
 #include <SDL.h>
@@ -219,6 +218,32 @@ void Game::render()
     
     //更新屏幕
     SDL_RenderPresent(renderer);
+}
+
+void Game::renderTextCentered(std::string text, float posY, bool isTitle)
+{
+    SDL_Color color = {255, 255, 255, 255};
+    SDL_Surface *surface = nullptr;
+    if(isTitle)
+    {
+        surface = TTF_RenderText_Solid(titleFont, text.c_str(), color);
+    }
+    else
+    {
+        surface = TTF_RenderText_Solid(textFont, text.c_str(), color);
+    }
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
+    int y=static_cast<int>(getWindowHeight()-surface->h)*posY;
+    SDL_Rect rect=
+    {
+        static_cast<int>(getWindowWidth()/2 - surface->w/2),
+        y,
+        surface->w,
+        surface->h
+    };
+    SDL_RenderCopy(renderer, texture, nullptr, &rect);
+    SDL_DestroyTexture(texture);
+    SDL_FreeSurface(surface);
 }
 
 void Game::backgroundupdate(float deltaTime)

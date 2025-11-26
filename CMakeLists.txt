@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10.0)
+﻿cmake_minimum_required(VERSION 3.10.0)
 project(SDLShooter VERSION 0.1.0 LANGUAGES C CXX)
 
 #设置编译选项
@@ -7,6 +7,13 @@ if(MSCV)
 elseif()
     add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
+if(MSVC)
+    add_compile_options(/utf-8)
+    add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
+endif()
+
+add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
 
 #设置编译输出目录
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_SOURCE_DIR})
@@ -24,6 +31,7 @@ find_package(SDL2_mixer REQUIRED)
 add_executable(${TARGET} 
                 "src/main.cpp"
                 "src/Game.cpp"
+                "src/Scene.cpp"
                 "src/SceneTitle.cpp"
                 "src/SceneMain.cpp"
                 )

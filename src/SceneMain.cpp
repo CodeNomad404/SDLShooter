@@ -6,7 +6,7 @@
 #include <random>
 #include <string>
 
-SceneMain::SceneMain():game(Game::getInstance())
+SceneMain::~SceneMain()
 {
 }
 

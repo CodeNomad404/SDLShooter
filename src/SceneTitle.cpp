@@ -1,4 +1,7 @@
-#include "SceneTitle.h"
+﻿#include "SceneTitle.h"
+#include "SceneMain.h"
+#include "Game.h"
+#include <string>
 
 void SceneTitle::init()
 {
@@ -17,6 +20,12 @@ void SceneTitle::update(float deltaTime)
 
 void SceneTitle::render()
 {
+    //渲染标题文字
+    std::string titleText="Space Invaders";
+    game.renderTextCentered(titleText,0.4,true);
+    //渲染普通文字  
+    std::string normalText="Press J to Start";
+    game.renderTextCentered(normalText,0.8,false);
 }
 
 void SceneTitle::clean()
@@ -25,4 +34,5 @@ void SceneTitle::clean()
 
 void SceneTitle::handleEvents(SDL_Event *event)
 {
+    
 }

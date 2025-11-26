@@ -52,6 +52,9 @@
         "xloctime": "cpp",
         "xmemory": "cpp",
         "xtr1common": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "map": "cpp",
+        "string": "cpp",
+        "xtree": "cpp"
     }
 }
