@@ -50,7 +50,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "SDLShooter-Windows::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SDLShooter-Windows-Debug-37194d7f810e1d7b8df5.json",
+					"jsonFile" : "target-SDLShooter-Windows-Debug-1010cd93bbc9f19297ea.json",
 					"name" : "SDLShooter-Windows",
 					"projectIndex" : 0
 				},
@@ -112,7 +112,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "SDLShooter-Windows::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SDLShooter-Windows-Release-4e4c6e4f9f3e3c8c6d81.json",
+					"jsonFile" : "target-SDLShooter-Windows-Release-b773428a7e93bf9f72a7.json",
 					"name" : "SDLShooter-Windows",
 					"projectIndex" : 0
 				},
@@ -174,7 +174,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "SDLShooter-Windows::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SDLShooter-Windows-MinSizeRel-542af26e1d527b55b2e5.json",
+					"jsonFile" : "target-SDLShooter-Windows-MinSizeRel-755838892b413c620086.json",
 					"name" : "SDLShooter-Windows",
 					"projectIndex" : 0
 				},
@@ -236,7 +236,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "SDLShooter-Windows::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SDLShooter-Windows-RelWithDebInfo-7f0f32faa18c795de092.json",
+					"jsonFile" : "target-SDLShooter-Windows-RelWithDebInfo-0a3e875f4c9a345aa145.json",
 					"name" : "SDLShooter-Windows",
 					"projectIndex" : 0
 				},

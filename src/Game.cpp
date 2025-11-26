@@ -220,7 +220,7 @@ void Game::render()
     SDL_RenderPresent(renderer);
 }
 
-void Game::renderTextCentered(std::string text, float posY, bool isTitle)
+SDL_Point Game::renderTextCentered(std::string text, float posY, bool isTitle)
 {
     SDL_Color color = {255, 255, 255, 255};
     SDL_Surface *surface = nullptr;
@@ -241,6 +241,38 @@ void Game::renderTextCentered(std::string text, float posY, bool isTitle)
         surface->w,
         surface->h
     };
+    SDL_RenderCopy(renderer, texture, nullptr, &rect);
+    SDL_DestroyTexture(texture);
+    SDL_FreeSurface(surface);
+    return {rect.x+rect.w, y};
+}
+
+void Game::renderTextPos(std::string text, int posX, int posY,bool isLeft)
+{
+    SDL_Color color = {255, 255, 255, 255};
+    SDL_Surface *surface = TTF_RenderText_Solid(textFont, text.c_str(), color);
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_Rect rect;
+    if(isLeft)
+    {
+        rect=
+        {
+            posX,
+            posY,
+            surface->w,
+            surface->h
+        };
+    }
+    else
+    {
+        rect=
+        {
+            getWindowWidth()-posX - surface->w,
+            posY,
+            surface->w,
+            surface->h
+        };
+    }
     SDL_RenderCopy(renderer, texture, nullptr, &rect);
     SDL_DestroyTexture(texture);
     SDL_FreeSurface(surface);
@@ -282,5 +314,14 @@ void Game::renderBackground()
             SDL_RenderCopy(renderer,nearStars.texture,NULL,&destRect);
         }
 
+    }
+}
+
+void Game::insertLeaderBoard(std::string name, int score)
+{
+    leaderBoard.insert({score,name});
+    if(leaderBoard.size()>8)
+    {
+        leaderBoard.erase(--leaderBoard.end());
     }
 }

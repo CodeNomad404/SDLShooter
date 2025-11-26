@@ -17,7 +17,7 @@ public:
 
 private:
     Mix_Music* bgm;
-    
+    float timer=0.0f;//计时器
 };
 
 #endif // SCENE_TITLE_H

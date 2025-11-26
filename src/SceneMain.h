@@ -14,7 +14,6 @@ class Game;//不能包含Game.h，否则会循环依赖，在cpp文件中包含�
 
 class SceneMain : public Scene {
 public:
-    SceneMain();
     ~SceneMain();
 
     void update(float deltaTime) override;
@@ -30,6 +29,7 @@ private:
     TTF_Font* scoreFont; //字体
     bool isDead= false;
     int score = 0;
+    float timerEnd=0.0f; //死亡后计时
     
     std::mt19937 gen;//随机数生成器
     std::uniform_real_distribution<float> dis;//生成随机数
@@ -72,6 +72,7 @@ private:
     void updatePlayer(float deltaTime);//更新玩家
     void updateExplosions();//更新爆炸效果
     void updateItems(float deltaTime);//更新道具
+    void changeSceneDelayed(float deltaTime,float delay);//延时切换场景死亡后延时切换场景
     
     //其他
     void keyboardControl(float deltaTime);

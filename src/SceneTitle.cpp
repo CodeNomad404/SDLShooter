@@ -16,6 +16,12 @@ void SceneTitle::init()
 
 void SceneTitle::update(float deltaTime)
 {
+    timer+=deltaTime;
+    //每隔0.5秒切换一次背景音乐，制造节奏感
+    if(timer>=1.0f)
+    {
+        timer=0.0f;
+    }
 }
 
 void SceneTitle::render()
@@ -24,8 +30,11 @@ void SceneTitle::render()
     std::string titleText="Space Invaders";
     game.renderTextCentered(titleText,0.4,true);
     //渲染普通文字  
+    if(timer<0.5f)
+    {
     std::string normalText="Press J to Start";
     game.renderTextCentered(normalText,0.8,false);
+    }
 }
 
 void SceneTitle::clean()
@@ -34,5 +43,12 @@ void SceneTitle::clean()
 
 void SceneTitle::handleEvents(SDL_Event *event)
 {
-    
+    if(event->type==SDL_KEYDOWN)
+    {
+        if(event->key.keysym.scancode==SDL_SCANCODE_J)
+        {
+            auto sceneMain=new SceneMain();
+            game.changeScene(sceneMain);
+        }
+    }
 }

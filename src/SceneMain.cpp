@@ -1,5 +1,7 @@
 #include "SceneMain.h"
 #include "Game.h"
+#include "SceneTitle.h"
+#include "SceneEnd.h"
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -20,6 +22,9 @@ void SceneMain::update(float deltaTime)
     updatePlayer(deltaTime);
     updateExplosions();
     updateItems(deltaTime);
+    if(isDead){
+        changeSceneDelayed(deltaTime,3.0f);
+    }
 }
 
 void SceneMain::render()
@@ -235,6 +240,14 @@ void SceneMain::clean()
 
 void SceneMain::handleEvents(SDL_Event *event)
 {
+    if(event->type==SDL_KEYDOWN)
+    {
+        if(event->key.keysym.scancode==SDL_SCANCODE_ESCAPE)
+        {
+            auto sceneTitle=new SceneTitle();
+            game.changeScene(sceneTitle);
+        }
+    }
 }
 
 void SceneMain::keyboardControl(float deltaTime)
@@ -416,6 +429,7 @@ void SceneMain::updatePlayer(float deltaTime)
         explosion->startTime=currentTime;
         explosions.push_back(explosion);
         Mix_PlayChannel(-1,sounds["player_explosion"],0);
+        game.setFinalScore(score);
         return;
     }
     for(auto& enemy:enemies)
@@ -532,6 +546,17 @@ void SceneMain::updateItems(float deltaTime)
             }
         }
     }
+}
+
+void SceneMain::changeSceneDelayed(float deltaTime, float delay)
+{
+    timerEnd+=deltaTime;
+    if(timerEnd>=delay)
+    {
+        auto sceneEnd=new SceneEnd();
+        game.changeScene(sceneEnd);
+    }
+
 }
 
 void SceneMain::renderEnemies()

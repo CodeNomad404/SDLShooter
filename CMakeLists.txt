@@ -34,6 +34,7 @@ add_executable(${TARGET}
                 "src/Scene.cpp"
                 "src/SceneTitle.cpp"
                 "src/SceneMain.cpp"
+                "src/SceneEnd.cpp"
                 )
 
 #链接SDL2库
