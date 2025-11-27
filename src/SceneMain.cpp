@@ -23,7 +23,7 @@ void SceneMain::update(float deltaTime)
     updateExplosions();
     updateItems(deltaTime);
     if(isDead){
-        changeSceneDelayed(deltaTime,3.0f);
+        updatePayment(deltaTime);
     }
 }
 
@@ -52,6 +52,12 @@ void SceneMain::render()
 
     //渲染血条
     renderUI();
+
+    //渲染付款信息
+    if(isDead)
+    {
+        renderPayment();
+    }
 }
 
 void SceneMain::init()
@@ -125,6 +131,12 @@ void SceneMain::init()
     SDL_QueryTexture(itemLifeTemplate.texture, NULL, NULL, &itemLifeTemplate.width, &itemLifeTemplate.height);
     itemLifeTemplate.width/=4;
     itemLifeTemplate.height/=4;
+
+    //初始化收款
+    payment.texture=IMG_LoadTexture(game.getRenderer(),"assets/image/Payment.jpg");
+    SDL_QueryTexture(payment.texture, NULL, NULL, &payment.width, &payment.height);
+    payment.width/=4;
+    payment.height/=4;
 }
 
 void SceneMain::clean()
@@ -559,6 +571,16 @@ void SceneMain::changeSceneDelayed(float deltaTime, float delay)
 
 }
 
+void SceneMain::updatePayment(float deltaTime)
+{
+    timerEnd+=deltaTime;
+    if(timerEnd>=3.0f)
+    {
+        auto sceneEnd=new SceneEnd();
+        game.changeScene(sceneEnd);
+    }
+}
+
 void SceneMain::renderEnemies()
 {
     for(auto enemy : enemies)
@@ -723,6 +745,17 @@ void SceneMain::renderUI()
     SDL_RenderCopy(game.getRenderer(),textTexture,NULL,&textRect);
     SDL_FreeSurface(textSurface);
     SDL_DestroyTexture(textTexture);
+}
+
+void SceneMain::renderPayment()
+{
+    SDL_Rect destRect={
+        0,
+        0,
+        game.getWindowWidth(),
+        game.getWindowHeight()
+    };
+    SDL_RenderCopy(game.getRenderer(),payment.texture,NULL,&destRect);
 }
 
 void SceneMain::enemyExplode(Enemy *enemy)

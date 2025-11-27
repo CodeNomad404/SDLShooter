@@ -30,6 +30,7 @@ private:
     bool isDead= false;
     int score = 0;
     float timerEnd=0.0f; //死亡后计时
+    MyPayment payment; //我的付款信息
     
     std::mt19937 gen;//随机数生成器
     std::uniform_real_distribution<float> dis;//生成随机数
@@ -64,6 +65,7 @@ private:
     void renderExplosions();//渲染爆炸效果
     void renderItems();//渲染道具
     void renderUI();//渲染UI
+    void renderPayment();//渲染付款信息
     
     //更新相关
     void updatePlayerProjectiles(float deltaTime);//更新玩家子弹
@@ -73,6 +75,7 @@ private:
     void updateExplosions();//更新爆炸效果
     void updateItems(float deltaTime);//更新道具
     void changeSceneDelayed(float deltaTime,float delay);//延时切换场景死亡后延时切换场景
+    void updatePayment(float deltaTime);//更新付款信息
     
     //其他
     void keyboardControl(float deltaTime);

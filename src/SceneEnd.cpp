@@ -5,13 +5,20 @@
 
 void SceneEnd::init()
 {
+    //载入背景音乐
+    bgm=Mix_LoadMUS("assets/music/06_Battle_in_Space_Intro.ogg");
+    if(bgm==nullptr){
+        SDL_LogError(SDL_LOG_PRIORITY_ERROR, "Failed to load music: %s", SDL_GetError());
+    }
+    Mix_PlayMusic(bgm, -1);
+
     if(!SDL_IsTextInputActive())
     {
         SDL_StartTextInput();
-        if(!SDL_IsTextInputActive())
-        {
-            SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to start text input: %s", SDL_GetError());
-        }
+    }
+    if(!SDL_IsTextInputActive())
+    {
+         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to start text input: %s", SDL_GetError());
     }
 }
 
@@ -37,6 +44,11 @@ void SceneEnd::render()
 
 void SceneEnd::clean()
 {
+    if(bgm!=nullptr)
+    {
+        Mix_HaltMusic();
+        Mix_FreeMusic(bgm);
+    }
 }
 
 void SceneEnd::handleEvents(SDL_Event *event)
@@ -78,6 +90,11 @@ void SceneEnd::handleEvents(SDL_Event *event)
     }
 }
 
+void SceneEnd::renderMyPayment()
+{
+
+}
+
 void SceneEnd::renderPhase1()
 {
     auto score=game.getFinalScore();
@@ -105,7 +122,7 @@ void SceneEnd::renderPhase1()
 
 void SceneEnd::renderPhase2()
 {
-    game.renderTextCentered("得分榜",0.1,true);
+    game.renderTextCentered("scoreboard",0.1,true);
     auto posY=0.2*game.getWindowHeight();
     auto i=1;
     for(auto item : game.getLeaderBoard())
@@ -117,7 +134,7 @@ void SceneEnd::renderPhase2()
         posY+=40;
         ++i;
     }
-    game.renderTextCentered("按 J 键重新开始游戏",0.85,false);
+    game.renderTextCentered("Press J to restart",0.85,false);
 }
 
 void SceneEnd::removeLastUTFChar(std::string& str)

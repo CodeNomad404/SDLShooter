@@ -89,4 +89,12 @@ struct Background
     int height=0;
     int speed=30; //滚动速度
 };
+
+struct MyPayment
+{
+    SDL_Texture* texture=nullptr;
+    SDL_FPoint position={0,0}; //x,y
+    int width=0;
+    int height=0;
+};
 #endif

@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
+#include <fstream>
 
 Game::Game()
 {
@@ -11,6 +12,7 @@ Game::Game()
 
 Game::~Game()
 {
+    saveData();
     clean();
 }
 
@@ -63,6 +65,10 @@ void Game::init()
         SDL_LogError(SDL_LOG_CATEGORY_ERROR,"Renderer could not be created: %s", SDL_GetError());
         isRunning = false;
     }
+    
+    //设置逻辑分辨率
+    SDL_RenderSetLogicalSize(renderer, windowWidth, windowHeight);
+
     //初始化SDL_image
     if(IMG_Init(IMG_INIT_PNG) != IMG_INIT_PNG)
     {
@@ -120,6 +126,10 @@ void Game::init()
         SDL_LogError(SDL_LOG_CATEGORY_ERROR, "SDL_ttf could not initialize! Error: %s", TTF_GetError());
         isRunning = false;
     }
+
+    //载入得分
+    loadData();
+
 
     currentScene = new SceneTitle();
     currentScene->init();
@@ -191,13 +201,26 @@ void Game::changeScene(Scene *scene)
 void Game::handeleEvent(SDL_Event *event)
 {
     while(SDL_PollEvent(event))
+    {
+        if(event->type == SDL_QUIT)
         {
-            if(event->type == SDL_QUIT)
-            {
-                isRunning = false;
-            }
-        currentScene->handleEvents(event);
+            isRunning = false;
         }
+        if(event->type == SDL_KEYDOWN)
+        {
+            if(event->key.keysym.scancode == SDL_SCANCODE_F4)
+            {
+                isFullscreen = !isFullscreen;
+                if(!isFullscreen){
+                    SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+                }
+                else{
+                    SDL_SetWindowFullscreen(window, 0);
+                }
+            }
+        }
+        currentScene->handleEvents(event);
+    }
 }
 
 void Game::update(float deltaTime)
@@ -314,6 +337,39 @@ void Game::renderBackground()
             SDL_RenderCopy(renderer,nearStars.texture,NULL,&destRect);
         }
 
+    }
+}
+
+void Game::saveData()
+{
+    //保存数据
+    std::ofstream file("assets/save.dat");
+    if(!file.is_open())
+    {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION,"Failed to open save file");
+        return;
+    }
+    for(const auto& entry:leaderBoard)
+    {
+        file<<entry.first<<" "<<entry.second<<std::endl;
+    }
+}
+
+void Game::loadData()
+{
+    //加载数据
+    std::ifstream file("assets/save.dat");
+    if(!file.is_open())
+    {
+        SDL_Log("Failed to open save file");
+        return;
+    }
+    leaderBoard.clear();
+    int score;
+    std::string name;
+    while(file>>score>>name)
+    {
+        leaderBoard.insert({score,name});
     }
 }
 
