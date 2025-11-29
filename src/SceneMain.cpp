@@ -241,6 +241,9 @@ void SceneMain::clean()
     {
         SDL_DestroyTexture(itemLifeTemplate.texture);
     }
+    if(payment.texture!=NULL){
+        SDL_DestroyTexture(payment.texture);
+    }
 
     //清理音乐资源
     if(bgm!=nullptr)
